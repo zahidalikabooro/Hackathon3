@@ -4,11 +4,10 @@ import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-import { allProducts, four } from "@/sanity/lib/query";
+import { allProducts } from "@/sanity/lib/query"; // Removed 'four'
 import { Product } from "../../../types/product";
 import { addtoCart } from "../actions/actions";
 import Swal from "sweetalert2";
-
 
 const AllProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -21,20 +20,18 @@ const AllProducts = () => {
     fetchProducts();
   }, []);
 
-  const handleAddToCart = (e:React.MouseEvent, product: Product) =>{
-    e.preventDefault()
-Swal.fire({
-  position : "top-right",
-  icon : "success",
-  title : `${product.name} added to cart`, 
-  showConfirmButton : false,
-  timer : 1000
-})
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault();
+    Swal.fire({
+      position: "top-right",
+      icon: "success",
+      title: `${product.name} added to cart`,
+      showConfirmButton: false,
+      timer: 1000,
+    });
 
-    addtoCart(product)
-    
-  }
-  
+    addtoCart(product);
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -62,14 +59,13 @@ Swal.fire({
                   {product.price ? `$${product.price}` : "Price not Available"}
                 </p>
               </div>
-              <button 
-  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg
-  hover:scale-110 transition-transform duration-200 ease-in-out" 
-  onClick={(e) => handleAddToCart(e, product)}
->
-  Add to Cart
-</button>
-
+              <button
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg
+                hover:scale-110 transition-transform duration-200 ease-in-out"
+                onClick={(e) => handleAddToCart(e, product)}
+              >
+                Add to Cart
+              </button>
             </Link>
           </div>
         ))}

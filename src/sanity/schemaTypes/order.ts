@@ -1,4 +1,4 @@
-export default {
+const orderSchema = {
     name: "order",
     type: "document",
     title: "Order",
@@ -59,9 +59,11 @@ export default {
                     { title: "Success", value: "success" },
                     { title: "Dispatch", value: "dispatch" },
                 ],
-                layout: "radio" // Fixed: lowercase 'layout'
+                layout: "radio"
             },
             initialValue: "pending"
         }
     ]
-}
+};
+
+export default orderSchema;

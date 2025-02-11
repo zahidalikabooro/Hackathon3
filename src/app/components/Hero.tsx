@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function HeroSection() {
   return (
@@ -20,9 +21,11 @@ export default function HeroSection() {
 
       {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-        <img
-          src="./sofa.png"
+        <Image
+          src="/sofa.png"
           alt="Rocket Single Seater Sofa"
+          width={600} // Adjust dimensions accordingly
+          height={400}
           className="object-cover w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] rounded-xl shadow-2xl hover:scale-105 transition-transform duration-300"
         />
       </div>
