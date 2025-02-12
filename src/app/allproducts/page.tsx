@@ -10,13 +10,7 @@ import { addtoCart } from "../actions/actions";
 import Swal from "sweetalert2";
 import Image from "next/image";
 
-interface ProductPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const AllProducts: React.FC<ProductPageProps> = ({ params }) => {
+const AllProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
