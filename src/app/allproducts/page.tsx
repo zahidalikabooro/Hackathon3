@@ -8,6 +8,7 @@ import { allProducts } from "@/sanity/lib/query"; // Removed 'four'
 import { Product } from "../../../types/product";
 import { addtoCart } from "../actions/actions";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 const AllProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -46,7 +47,7 @@ const AllProducts = () => {
             <Link href={`/allproducts/${product.slug.current}`}>
               <div className="cursor-pointer">
                 {product.image && (
-                  <img
+                  <Image
                     src={urlFor(product.image).url()}
                     alt={product.name}
                     width={200}

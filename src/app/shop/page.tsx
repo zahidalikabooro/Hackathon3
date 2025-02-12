@@ -4,6 +4,7 @@ import { MdOutlineFilterList } from "react-icons/md";
 import { HiViewGrid } from "react-icons/hi";
 import { BsViewList } from "react-icons/bs";
 import { FaGripLinesVertical } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -17,10 +18,12 @@ export default function Page() {
         <div className="absolute inset-0 bg-black opacity-40"></div>
 
         {/* Logo */}
-        <img
+        <Image
           src="/logo.png"
           alt="logo"
           className="w-[60px] h-[60px] md:w-[77px] md:h-[77px] mb-2 md:mb-4 relative z-10"
+          width={77}
+          height={77}
         />
 
         {/* Page Title */}
@@ -123,10 +126,12 @@ interface Product {
 function ProductCard({ product }: { product: Product }) {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
-      <img
+      <Image
         src={product.imageUrl}
         alt={product.name}
         className="w-full h-[150px] md:h-[200px] object-cover"
+        width={300}
+        height={200}
       />
       <div className="p-4 flex-grow">
         <h2 className="text-base md:text-lg font-semibold mt-2">{product.name}</h2>

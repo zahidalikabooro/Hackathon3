@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+
 import { FaMapMarkerAlt, FaPhone, FaClock, FaEnvelope } from "react-icons/fa";
 
 const ContactPage = () => {
