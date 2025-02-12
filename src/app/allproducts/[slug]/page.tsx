@@ -6,7 +6,7 @@ import { Product } from "../../../../types/product";
 
 // Fix: Ensure `params` type is correctly defined
 interface ProductPageProps {
-  params: { slug: string } | Promise<{ slug: string }>;
+  params: { slug: string };
 }
 
 // Fetch product data based on slug
@@ -26,9 +26,7 @@ async function getProduct(slug: string): Promise<Product | null> {
 
 // Export the default async function for the page
 export default async function ProductPage({ params }: ProductPageProps) {
-  // Fix: Ensure `params` is awaited if needed
-  const resolvedParams = await params;
-  const { slug } = resolvedParams;
+  const { slug } = params;
   
   const product = await getProduct(slug);
 
