@@ -4,9 +4,9 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { Product } from "../../../../types/product";
 
-// Define the expected shape of the params
+// Fix: Ensure `params` type is correctly defined
 interface ProductPageProps {
-  params: { slug: string };
+  params: { slug: string } | Promise<{ slug: string }>;
 }
 
 // Fetch product data based on slug
@@ -26,7 +26,10 @@ async function getProduct(slug: string): Promise<Product | null> {
 
 // Export the default async function for the page
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { slug } = params;
+  // Fix: Ensure `params` is awaited if needed
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  
   const product = await getProduct(slug);
 
   if (!product) {
